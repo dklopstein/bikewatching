@@ -13,15 +13,33 @@ const map = new mapboxgl.Map({
 });
 
 map.on("load", () => {
-  map.addSource("boston_route", {
+  // Boston bike routes
+  map.addSource("boston_routes", {
     type: "geojson",
     data: "https://bostonopendata-boston.opendata.arcgis.com/datasets/boston::existing-bike-network-2022.geojson?...",
   });
 
   map.addLayer({
-    id: "bike-lanes",
+    id: "boston-bike-lanes",
     type: "line",
-    source: "boston_route",
+    source: "boston_routes",
+    paint: {
+      "line-color": "#32D400",
+      "line-width": 4,
+      "line-opacity": 0.4,
+    },
+  });
+
+  //   Cambridge bike routes
+  map.addSource("cambridge_routes", {
+    type: "geojson",
+    data: "https://raw.githubusercontent.com/cambridgegis/cambridgegis_data/main/Recreation/Bike_Facilities/RECREATION_BikeFacilities.geojson",
+  });
+
+  map.addLayer({
+    id: "cambridge-bike-lanes",
+    type: "line",
+    source: "cambridge_routes",
     paint: {
       "line-color": "#32D400",
       "line-width": 4,
