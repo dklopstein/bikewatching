@@ -1,3 +1,4 @@
+/* General */
 html,
 body {
   margin: 0;
@@ -9,6 +10,40 @@ body {
   align-items: center; /* Center vertically */
 }
 
+header {
+  display: flex;
+  align-items: baseline;
+  padding: 1em;
+  width: 100%;
+  justify-content: space-between;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+header label {
+    font-size: 16px;
+}
+
+time,
+em {
+  display: block;
+  justify-self: right;
+  font-size: 16px;
+}
+
+em {
+  color: #666;
+  font-style: italic;
+}
+
+input[type="range"] {
+  width: 400px;
+}
+
+/* Mapbox */
 #map {
   width: 100%; /* Adjust width to your desired size */
   height: 100%; /* Adjust height to your desired size */
@@ -17,14 +52,49 @@ body {
 }
 
 #map svg {
-    position: absolute;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
 }
 
 svg circle {
-    fill-opacity: 60%;
-    pointer-events: auto;
+  fill-opacity: 60%;
+  pointer-events: auto;
+  --color-departures: steelblue;
+  --color-arrivals: darkorange;
+  --color: color-mix(
+    in oklch,
+    var(--color-departures) calc(100% * var(--departure-ratio)),
+    var(--color-arrivals)
+  );
+  fill: var(--color);
+}
+
+/* Legend */
+.legend {
+    padding: 1rem;
+    font-size: 16px;
+    color: #333;
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+}
+
+.legend div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.legend div::before {
+    content: "";
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: color-mix(in oklch,
+            steelblue calc(100% * var(--departure-ratio)),
+            darkorange);
+    border: 1px solid rgba(0, 0, 0, 0.2);
 }
