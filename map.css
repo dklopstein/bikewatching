@@ -26,4 +26,5 @@ body {
 
 svg circle {
     fill-opacity: 60%;
+    pointer-events: auto;
 }
