@@ -24,7 +24,7 @@ header h1 {
 }
 
 header label {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 time,
@@ -74,27 +74,29 @@ svg circle {
 
 /* Legend */
 .legend {
-    padding: 1rem;
-    font-size: 16px;
-    color: #333;
-    display: flex;
-    flex-direction: row;
-    gap: 3rem;
+  padding: 1rem;
+  font-size: 16px;
+  color: #333;
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
 }
 
 .legend div {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .legend div::before {
-    content: "";
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: color-mix(in oklch,
-            steelblue calc(100% * var(--departure-ratio)),
-            darkorange);
-    border: 1px solid rgba(0, 0, 0, 0.2);
+  content: "";
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: color-mix(
+    in oklch,
+    steelblue calc(100% * var(--departure-ratio)),
+    darkorange
+  );
+  border: 1px solid rgba(0, 0, 0, 0.2);
 }
